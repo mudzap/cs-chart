@@ -1,15 +1,22 @@
 {
-    "name": "@urieliascb/cs-chart",
     "version": "0.0.1",
+    "name": "@urieliascb/cs-chart",
     "description": "This is a test Component for a graph",
     "repository": {
         "type": "git",
-        "url": "https://github.com/urieliascb/cs-chart.git"
+        "url": "https://github.com/urieliascb/cs-chart"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
     },
-    "private": true,
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "rwd",
+        "react"
+    ],
+    "author": "urieliascb",
+    "license": "MIT",
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.2",
         "@testing-library/react": "^12.1.2",
@@ -24,11 +31,17 @@
         "typescript": "^4.5.5",
         "web-vitals": "^2.1.4"
     },
+    "peerDependencies": {
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
+    },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prepublish": "tsc",
+        "deploy": "npm publish --access public"
     },
     "eslintConfig": {
         "extends": [
