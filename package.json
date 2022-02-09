@@ -1,6 +1,7 @@
 {
     "name": "@urieliascb/cs-chart",
     "version": "0.0.1",
+    "description": "This is a test Component for a graph",
     "repository": {
         "type": "git",
         "url": "https://github.com/urieliascb/cs-chart.git"
