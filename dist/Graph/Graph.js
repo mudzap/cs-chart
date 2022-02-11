@@ -12,6 +12,7 @@ var __assign = (this && this.__assign) || function () {
 };
 exports.__esModule = true;
 var jsx_runtime_1 = require("react/jsx-runtime");
+var react_1 = require("react");
 var prop_types_1 = require("prop-types");
 var Graph = function (_a) {
     var data = _a.data;

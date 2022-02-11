@@ -1,4 +1,3 @@
-/// <reference types="react" />
 interface IProps {
     data: Array<{
         label: string;
@@ -6,7 +5,7 @@ interface IProps {
     }>;
 }
 declare const Graph: {
-    ({ data }: IProps): JSX.Element;
+    ({ data }: IProps): any;
     propTypes: {
         data: any;
     };
