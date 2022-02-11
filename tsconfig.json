@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "components",
+        "baseUrl": "src/",
         "skipLibCheck": true,
         "lib": [
             "dom",
@@ -15,7 +15,7 @@
         
     },
     "include": [
-        "components"
+        "src/components"
     ],
     "exclude": [
         "node-modules",
