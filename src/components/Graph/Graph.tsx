@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes from "../../../node_modules/prop-types";
 
 interface IProps {
 	data: Array<{
