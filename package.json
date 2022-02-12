@@ -9,8 +9,8 @@
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
     },
-    "main": "src/components/index.js",
-    "types": "src/components/index.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "keywords": [
         "rwd",
         "react"
@@ -18,9 +18,6 @@
     "author": "urieliascb",
     "license": "MIT",
     "dependencies": {
-        "@testing-library/jest-dom": ">=5.16.2",
-        "@testing-library/react": ">=12.1.2",
-        "@testing-library/user-event": ">=13.5.0",
         "prop-types": ">=15.8.1",
         "react": ">=16.0.0",
         "react-dom": ">=16.0.0",
@@ -28,9 +25,17 @@
         "typescript": ">=4.5.5",
         "web-vitals": ">=2.1.4"
     },
+    "devDependencies": {
+        "@testing-library/jest-dom": ">=5.16.2",
+        "@testing-library/react": ">=12.1.2",
+        "@testing-library/user-event": ">=13.5.0",
+        "@types/react": ">=16.0.0",
+        "@types/react-dom": ">=16.0.0"
+    }
+    ,
     "peerDependencies": {
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react": ">=16.0.0",
+        "react-dom": ">=16.0.0"
     },
     "scripts": {
         "start": "react-scripts start",
