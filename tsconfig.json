@@ -2,25 +2,25 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "baseUrl": "src/",
+        "baseUrl": "components/",
         "skipLibCheck": true,
         "lib": [
             "dom",
             "dom.iterable",
             "esnext"
         ],
-        "jsx": "react-jsx",
+        "jsx": "preserve",
         "declaration": true,
-        "outDir": "dist",
+        "outDir": "lib",
         "moduleResolution": "node",
         "typeRoots": ["node_modules/@types"],
         
     },
     "include": [
-        "src/components"
+        "components"
     ],
     "exclude": [
         "node-modules",
-        "dist"
+        "lib"
     ]
 }
