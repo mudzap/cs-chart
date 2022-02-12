@@ -10,10 +10,13 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
 var jsx_runtime_1 = require("react/jsx-runtime");
-var react_1 = require("react");
-var prop_types_1 = require("prop-types");
+var react_1 = __importDefault(require("react"));
+var prop_types_1 = __importDefault(require("prop-types"));
 var Graph = function (_a) {
     var data = _a.data;
     var mapval = function (val, valmin, valmax, min, max) {
