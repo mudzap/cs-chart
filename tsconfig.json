@@ -9,12 +9,13 @@
             "dom.iterable",
             "esnext"
         ],
-        "jsx": "preserve",
+        "jsx": "react",
+        "module": "es6",
         "declaration": true,
-        "outDir": "lib",
+        "outDir": "./lib",
         "moduleResolution": "node",
         "typeRoots": ["node_modules/@types"],
-        
+        "target": "ES5"
     },
     "include": [
         "components"
