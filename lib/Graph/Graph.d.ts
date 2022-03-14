@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import PropTypes from "prop-types";
 import "./Graph.css";
-export interface IProps {
+interface IProps {
     data: Array<{
         name: string;
         value: number;

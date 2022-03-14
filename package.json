@@ -18,11 +18,14 @@
   "author": "urieliascb",
   "license": "MIT",
   "dependencies": {
+    "@rollup/plugin-babel": "^5.3.1",
     "prop-types": ">=15.0.0",
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
     "react-scripts": ">=5.0.0",
     "recharts": ">=2.1.9",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
     "web-vitals": ">=2.1.4"
   },
   "devDependencies": {
@@ -44,8 +47,8 @@
     "@types/react-dom": ">=16.0.0",
     "babel-loader": "^8.2.3",
     "rollup": "^2.67.2",
-    "rollup-plugin-typescript2": "^0.31.2",
     "rollup-plugin-import-css": "^3.0.3",
+    "rollup-plugin-typescript2": "^0.31.2",
     "rollup-watch": "^4.3.1",
     "typescript": "^4.5.5",
     "typings": "^2.1.1",
@@ -58,12 +61,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rollup --config",
+    "build": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepublish": "rollup --config",
     "deploy": "npm publish --access public",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6010",
     "build-storybook": "build-storybook"
   },
   "eslintConfig": {

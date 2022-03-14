@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Graph.css";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 
-export interface IProps {
+interface IProps {
 	data: Array<{
 		name: string;
 		value: number;
