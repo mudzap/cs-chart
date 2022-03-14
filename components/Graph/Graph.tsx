@@ -31,7 +31,7 @@ const Graph = ({ data }: IProps) => {
 		return null;
 	};
 	return (
-		<ResponsiveContainer width="100%" height="100%">
+		<ResponsiveContainer width="100%" aspect={4 / 3}>
 			<AreaChart data={data} margin={{ top: 0, left: 0, right: 0, bottom: 0 }}>
 				<defs>
 					<linearGradient id="inner-gradient" gradientTransform="rotate(90)">
