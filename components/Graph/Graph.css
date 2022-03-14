@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap");
+
+.custom-tooltip {
+	display: flex;
+	background-color: #fffc;
+	border-radius: 10px;
+}
+
+.custom-tooltip > p {
+	display: block;
+	margin: 12px;
+	font-size: 12px;
+	font-weight: 700;
+	font-family: "Inter", sans-serif;
+}
