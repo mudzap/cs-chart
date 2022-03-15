@@ -1,15 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap");
 
 .custom-tooltip {
+	position: relative;
 	display: flex;
-	background-color: #fffc;
 	border-radius: 10px;
+	flex-direction: column;
+	padding: 0px;
+	/* gradient_mobile */
+	transform: translate(-50%, -100%);
 }
 
-.custom-tooltip > p {
-	display: block;
-	margin: 12px;
-	font-size: 12px;
-	font-weight: 700;
+.custom-tooltip > div {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.custom-tooltip > div > p {
+	font-size: 15px;
+	font-weight: 800;
 	font-family: "Inter", sans-serif;
+	margin-bottom: 30px;
+	color: #fff;
 }
