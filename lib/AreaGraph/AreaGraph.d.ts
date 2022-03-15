@@ -1,13 +1,13 @@
 /// <reference types="react" />
 import PropTypes from "prop-types";
-import "./Graph.css";
+import "./AreaGraph.css";
 interface IProps {
     data: Array<{
         name: string;
         value: number;
     }>;
 }
-declare const Graph: {
+declare const AreaGraph: {
     ({ data }: IProps): JSX.Element;
     propTypes: {
         data: PropTypes.Validator<PropTypes.InferProps<{
@@ -16,4 +16,4 @@ declare const Graph: {
         }>[]>;
     };
 };
-export default Graph;
+export default AreaGraph;

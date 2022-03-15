@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./Graph.css";
+import "./AreaGraph.css";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
 
@@ -71,7 +71,7 @@ const CustomTooltip = ({
 	return null;
 };
 
-const Graph = ({ data }: IProps) => {
+const AreaGraph = ({ data }: IProps) => {
 	const [points, setPoints] = useState<Array<{ x: number; y: number }>>();
 	const [coords, setCoords] = useState<{ x: number; y: number }>();
 
@@ -124,7 +124,7 @@ const Graph = ({ data }: IProps) => {
 	);
 };
 
-Graph.propTypes = {
+AreaGraph.propTypes = {
 	data: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string,
@@ -133,4 +133,4 @@ Graph.propTypes = {
 	).isRequired,
 };
 
-export default Graph;
+export default AreaGraph;
