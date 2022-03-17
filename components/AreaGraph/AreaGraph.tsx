@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./AreaGraph.css";
-import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
 
 interface IProps {
@@ -75,11 +75,13 @@ const AreaGraph = ({ data }: IProps) => {
 	const [points, setPoints] = useState<Array<{ x: number; y: number }>>();
 	const [coords, setCoords] = useState<{ x: number; y: number }>();
 
-	const smallest = data
+	const sorted = data
 		.map((entry) => {
 			return entry.value;
 		})
-		.sort()[0];
+		.sort((a, b) => a - b);
+	const smallest = sorted[0];
+	const biggest = sorted[1];
 
 	const updateIndex = (chart: CategoricalChartState) => {
 		let i = chart.activeTooltipIndex;
@@ -108,6 +110,7 @@ const AreaGraph = ({ data }: IProps) => {
 					</linearGradient>
 				</defs>
 				<XAxis hide dataKey="name" />
+				<YAxis hide type="number" domain={[smallest, biggest]} />
 				<Tooltip
 					content={<CustomTooltip />}
 					cursor={false}
