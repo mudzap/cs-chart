@@ -62,7 +62,7 @@ const CustomTooltip = ({
 					</defs>
 				</svg>
 				<div>
-					<p>{`${payload[0].value} / ${label}`}</p>
+					<p>{`${payload[0].value[1]} / ${label}`}</p>
 				</div>
 			</div>
 		);
@@ -74,6 +74,12 @@ const CustomTooltip = ({
 const AreaGraph = ({ data }: IProps) => {
 	const [points, setPoints] = useState<Array<{ x: number; y: number }>>();
 	const [coords, setCoords] = useState<{ x: number; y: number }>();
+
+	const smallest = data
+		.map((entry) => {
+			return entry.value;
+		})
+		.sort()[0];
 
 	const updateIndex = (chart: CategoricalChartState) => {
 		let i = chart.activeTooltipIndex;
@@ -88,7 +94,9 @@ const AreaGraph = ({ data }: IProps) => {
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<AreaChart
-				data={data}
+				data={data.map((entry) => {
+					return { ...entry, value: [smallest, entry.value] };
+				})}
 				margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
 				onMouseMove={(chart) => updateIndex(chart)}
 				onMouseLeave={() => setCoords(undefined)}
