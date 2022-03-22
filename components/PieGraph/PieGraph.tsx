@@ -15,7 +15,6 @@ const COLORS = ["#FF4895", "#6E4FE9", "#1766FF", "#2D42FF"];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = (props: any) => {
-	console.log(props);
 	const { cx, cy, midAngle, outerRadius, percentage } = props;
 	const radius = outerRadius * 1.5;
 	const x = cx + radius * Math.cos(-midAngle * RADIAN);

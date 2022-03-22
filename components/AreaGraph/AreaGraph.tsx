@@ -132,7 +132,6 @@ const AreaGraph = ({ data }: IProps) => {
 		setPoints(mapPoints());
 	}, [data, ref.current]);
 
-	console.log(coords);
 	return (
 		<div style={{ width: "100%", height: "100%" }} ref={ref}>
 			<ResponsiveContainer width="100%" height="100%">
