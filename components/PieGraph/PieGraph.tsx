@@ -52,7 +52,7 @@ const PieGraph = ({ data }: IProps) => {
 			};
 			setData2([...data]);
 		}
-	}, []);
+	}, [data]);
 
 	return (
 		<ResponsiveContainer width="100%" height="100%">
