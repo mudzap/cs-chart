@@ -20,7 +20,7 @@ const CustomTooltip = ({
 	payload?: any;
 	label?: any;
 }) => {
-	if (active && payload && payload.length) {
+	if (active && payload && payload.length && label !== "extra") {
 		return (
 			<div className="custom-tooltip">
 				<svg
@@ -67,7 +67,6 @@ const CustomTooltip = ({
 			</div>
 		);
 	}
-
 	return null;
 };
 
@@ -81,7 +80,9 @@ const AreaGraph = ({ data }: IProps) => {
 		})
 		.sort((a, b) => a - b);
 	const smallest = sorted[0];
-	const biggest = sorted[1];
+	const biggest = sorted[sorted.length - 1];
+	const avg = Math.round((smallest + biggest) / 2);
+	const avgEntry = { name: "extra", value: [smallest, avg] };
 
 	const updateIndex = (chart: CategoricalChartState) => {
 		let i = chart.activeTooltipIndex;
@@ -96,9 +97,13 @@ const AreaGraph = ({ data }: IProps) => {
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<AreaChart
-				data={data.map((entry) => {
-					return { ...entry, value: [smallest, entry.value] };
-				})}
+				data={[
+					avgEntry,
+					...data.map((entry) => {
+						return { ...entry, value: [smallest, entry.value] };
+					}),
+					avgEntry,
+				]}
 				margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
 				onMouseMove={(chart) => updateIndex(chart)}
 				onMouseLeave={() => setCoords(undefined)}
