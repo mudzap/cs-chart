@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./AreaGraph.css";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
@@ -73,14 +73,20 @@ const CustomTooltip = ({
 const AreaGraph = ({ data }: IProps) => {
 	const [points, setPoints] = useState<Array<{ x: number; y: number }>>();
 	const [coords, setCoords] = useState<{ x: number; y: number }>();
+	const [smallest, setSmallest] = useState<number>(0);
+	const [biggest, setBiggest] = useState<number>(0);
 
-	const sorted = data
-		.map((entry) => {
-			return entry.value;
-		})
-		.sort((a, b) => a - b);
-	const smallest = sorted[0];
-	const biggest = sorted[sorted.length - 1];
+	useEffect(() => {
+		setPoints(undefined);
+		setCoords(undefined);
+		const sorted = data
+			.map((entry) => {
+				return entry.value;
+			})
+			.sort((a, b) => a - b);
+		setSmallest(sorted[0]);
+		setBiggest(sorted[sorted.length - 1]);
+	}, [data]);
 
 	const updateIndex = (chart: CategoricalChartState) => {
 		let i = chart.activeTooltipIndex;
