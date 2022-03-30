@@ -102,13 +102,13 @@ const AreaGraph = ({ data }: IProps) => {
 				return entry.value;
 			})
 			.sort((a, b) => a - b);
-		let smallest = sorted[0];
 		let biggest = sorted[sorted.length - 1];
+		let smallest = sorted[0];
 		let pointsData = data.map((entry, index) => {
 			if (!ref.current || !ref.current.offsetWidth) return { x: 0, y: 0 };
 			return {
 				x: ((index + 1) * ref.current.offsetWidth) / (data.length + 1),
-				y: mapRange(entry.value, smallest, biggest, ref.current.offsetHeight, 0),
+				y: mapRange(entry.value, smallest - biggest * 0.2, biggest, ref.current.offsetHeight, 0),
 			};
 		});
 		return [
@@ -137,11 +137,11 @@ const AreaGraph = ({ data }: IProps) => {
 			<ResponsiveContainer width="100%" height="100%">
 				<AreaChart
 					data={[
-						{ name: "extra", value: [smallest, data[0].value] },
+						{ name: "extra", value: [smallest - biggest * 0.2, data[0].value] },
 						...data.map((entry) => {
-							return { ...entry, value: [smallest, entry.value] };
+							return { ...entry, value: [smallest - biggest * 0.2, entry.value] };
 						}),
-						{ name: "extra", value: [smallest, data[data.length - 1].value] },
+						{ name: "extra", value: [smallest - biggest * 0.2, data[data.length - 1].value] },
 					]}
 					margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
 					onMouseMove={(chart) => updateIndex(chart)}
@@ -154,7 +154,7 @@ const AreaGraph = ({ data }: IProps) => {
 						</linearGradient>
 					</defs>
 					<XAxis hide dataKey="name" />
-					<YAxis hide type="number" domain={[smallest, biggest]} />
+					<YAxis hide type="number" domain={[smallest - biggest * 0.2, biggest]} />
 					<Tooltip
 						content={<CustomTooltip />}
 						cursor={false}
@@ -164,6 +164,7 @@ const AreaGraph = ({ data }: IProps) => {
 					/>
 					<Area
 						activeDot={false}
+						isAnimationActive={false}
 						type="linear"
 						dataKey="value"
 						stroke="#fff"
