@@ -21,6 +21,8 @@ const CustomTooltip = ({
 	label?: any;
 }) => {
 	if (active && payload && payload.length && label !== "extra") {
+		let formatter = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" });
+		let val = formatter.format(payload[0].value[1]);
 		return (
 			<div className="custom-tooltip">
 				<svg
@@ -62,7 +64,7 @@ const CustomTooltip = ({
 					</defs>
 				</svg>
 				<div>
-					<p>{`${payload[0].value[1]} / ${label}`}</p>
+					<p>{`${val} / ${label}`}</p>
 				</div>
 			</div>
 		);
