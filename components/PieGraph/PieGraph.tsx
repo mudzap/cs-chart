@@ -75,7 +75,7 @@ const PieGraph = ({ data }: IProps) => {
 					outerRadius="50%"
 					fill="#82ca9d"
 					label={renderCustomizedLabel}
-					labelLine={false}
+					labelLine={renderCustomizedLabelLine}
 					stroke={"none"}
 				>
 					{data.map((entry, index) => (
